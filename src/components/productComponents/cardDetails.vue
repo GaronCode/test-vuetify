@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="opened" scrollable class="modal-card">
+  <v-dialog v-model="opened" scrollable :class="'modal-card'" max-width="700">
     <v-card>
       <v-card-text class="modal-card__body">
         <v-carousel :show-arrows="false">
@@ -17,7 +17,9 @@
             >
           </v-row>
           <v-row class="modal-card__container">
-            <v-col cols="12" sm="8">{{ product.description }}</v-col>
+            <v-col cols="12" sm="8" class="modal-card__description">{{
+              product.description
+            }}</v-col>
             <v-col cols="12" sm="4">
               <v-container>
                 <v-row>
@@ -89,10 +91,18 @@ export default {
     border-top: 1px solid colors.$border-color;
   }
 
+  &__description {
+    text-indent: 20px;
+    text-align: justify;
+  }
+
   &__buttons {
     display: flex;
     gap: 10px;
     justify-content: center;
   }
+}
+
+.v-dialog {
 }
 </style>
